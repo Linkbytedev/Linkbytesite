@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Linkbyte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg: #050508; --card-bg: rgba(17, 17, 26, 0.6); --border: rgba(255, 255, 255, 0.06); --primary: #0077ff; --text-main: #ffffff; --text-muted: #8892b0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-main); }
+    .nav { padding: 1.5rem 2rem; border-bottom: var(--border) 1px solid; backdrop-filter: blur(20px); position: sticky; top: 0; }
+    .container { max-width: 800px; margin: 6rem auto; padding: 0 2rem; text-align: center; }
+    .contact-form { background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; text-align: left; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; color: #fff; }
+    .submit-btn { width: 100%; padding: 1rem; background: #fff; color: #000; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
+    .email-link { display: block; margin-top: 2rem; color: var(--primary); text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+    .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
+    .social-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+    .social-links a:hover { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <nav class="nav"><a href="index.html" style="text-decoration:none; color:var(--text-muted);">← Back to Linkbyte</a></nav>
+  <div class="container">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem; letter-spacing: -0.04em;">Get in Touch</h1>
+    <p style="color: var(--text-muted); margin-bottom: 3rem;">Inquire about app development or collaborate with our studio.</p>
+    <form class="contact-form" action="mailto:Linkbytedevelopmentsolutions@proton.me" method="POST" enctype="text/plain">
+      <div class="form-group"><input type="text" name="name" class="form-input" placeholder="Name" required></div>
+      <div class="form-group"><input type="email" name="email" class="form-input" placeholder="Email" required></div>
+      <div class="form-group"><textarea name="message" class="form-input" style="height:150px;" placeholder="Message" required></textarea></div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+    <a href="mailto:Linkbytedevelopmentsolutions@proton.me" class="email-link">Linkbytedevelopmentsolutions@proton.me</a>
+    <div class="social-links">
+      <a href="https://x.com/linkbyte_dev" target="_blank">X (Twitter)</a>
+      <a href="https://www.instagram.com/linkbyte_dev/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</body>
+</html>
