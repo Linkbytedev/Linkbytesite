@@ -4,85 +4,280 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Linkbyte | Next-Gen App Development</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
   <style>
     :root {
-      --bg: #050508; --card-bg: rgba(17, 17, 26, 0.6); --border: rgba(255, 255, 255, 0.06);
-      --primary: #0077ff; --accent: #ff6a00; --text-main: #ffffff; --text-muted: #8892b0;
+      --bg: #050508;
+      --card-bg: rgba(17, 17, 26, 0.6);
+      --border: rgba(255, 255, 255, 0.06);
+      --primary: #0077ff;
+      --accent: #ff6a00;
+      --text-main: #ffffff;
+      --text-muted: #8892b0;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
-    .orb { position: fixed; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 119, 255, 0.08) 0%, transparent 70%); z-index: -1; filter: blur(80px); }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Orbs */
+    .orb {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,119,255,0.08) 0%, transparent 70%);
+      filter: blur(80px);
+      z-index: -1;
+    }
     .orb-1 { top: -200px; right: -100px; }
-    .orb-2 { bottom: -200px; left: -100px; background: radial-gradient(circle, rgba(255, 106, 0, 0.05) 0%, transparent 70%); }
-    .nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(20px); border-bottom: var(--border) 1px solid; }
-    .nav-logo { height: 32px; }
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+    .orb-2 {
+      bottom: -200px;
+      left: -100px;
+      background: radial-gradient(circle, rgba(255,106,0,0.05) 0%, transparent 70%);
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
     .nav-links a:hover { color: var(--primary); }
-    .hero { padding: 12rem 2rem 6rem; text-align: center; max-width: 1100px; margin: 0 auto; }
-    .badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); color: var(--text-muted); padding: 0.6rem 1.2rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; margin-bottom: 2rem; }
-    .hero h1 { font-size: clamp(2.8rem, 9vw, 5rem); font-weight: 800; line-height: 1.05; margin-bottom: 1.5rem; letter-spacing: -0.05em; }
-    .gradient { background: linear-gradient(to right, #00c6ff, #0072ff, #ff6a00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% auto; animation: gradientFlow 5s linear infinite; }
-    @keyframes gradientFlow { to { background-position: 200% center; } }
-    .hero p { color: var(--text-muted); font-size: 1.25rem; max-width: 650px; margin: 0 auto 3rem; }
-    .btn-group { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
-    .btn { padding: 1.1rem 2.5rem; border-radius: 14px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem; }
-    .btn-main { background: var(--text-main); color: var(--bg); }
-    .btn-outline { border: 1px solid var(--border); color: var(--text-main); background: rgba(255,255,255,0.02); }
-    .section { padding: 4rem 2rem 8rem; max-width: 1200px; margin: 0 auto; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; backdrop-filter: blur(10px); }
-    .open-source-card { grid-column: 1 / -1; margin-top: 2rem; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(90deg, rgba(17,17,26,0.6) 0%, rgba(0,119,255,0.05) 100%); }
-    .footer { padding: 6rem 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.9rem; }
-    .footer-socials { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; }
-    .footer-socials a { color: var(--text-muted); transition: 0.3s; text-decoration: none; }
-    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } .open-source-card { flex-direction: column; text-align: center; gap: 2rem; } }
+
+    /* Hero */
+    .hero {
+      padding: 12rem 2rem 6rem;
+      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.6rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 9vw, 5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.05em;
+    }
+
+    .gradient {
+      background: linear-gradient(to right, #00c6ff, #0072ff, #ff6a00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: gradientFlow 5s linear infinite;
+    }
+
+    @keyframes gradientFlow {
+      to { background-position: 200% center; }
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 3rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1.1rem 2.5rem;
+      border-radius: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-main {
+      background: var(--text-main);
+      color: var(--bg);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255,255,255,0.05);
+    }
+
+    /* Features */
+    .section {
+      padding: 4rem 2rem 8rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3rem;
+      backdrop-filter: blur(10px);
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    /* Footer */
+    .footer {
+      padding: 6rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-socials a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-socials a:hover { color: var(--primary); }
   </style>
 </head>
 <body>
-  <div class="orb orb-1"></div><div class="orb orb-2"></div>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
   <nav class="nav">
-    <a href="index.html"><img src="images/logo.png" alt="Linkbyte" class="nav-logo"></a>
+    <div class="nav-logo">Linkbyte</div>
     <div class="nav-links">
       <a href="apps.html">Apps</a>
       <a href="contact.html">Contact</a>
-      <a href="https://x.com/linkbyte_dev" target="_blank">X</a>
-      <a href="https://www.instagram.com/linkbyte_dev/" target="_blank">IG</a>
+      <a href="https://github.com/Linkbytedev" target="_blank">GitHub</a>
     </div>
   </nav>
+
   <header class="hero">
     <div class="badge">OPEN SOURCE STUDIO</div>
-    <h1>The Next Frontier of <br><span class="gradient">Mobile Experience</span></h1>
-    <p>We craft lightning-fast, secure, and privacy-centric Android applications built on transparency.</p>
+    <h1>The Next Frontier of<br><span class="gradient">Mobile Experience</span></h1>
+    <p>
+      We craft lightning-fast, secure, and privacy-centric Android applications
+      built transparently in the open.
+    </p>
+
     <div class="btn-group">
       <a href="apps.html" class="btn btn-main">Browse Apps</a>
-      <a href="https://github.com/linkbyte-dev" class="btn btn-outline">GitHub</a>
+      <a href="https://github.com/Linkbytedev" target="_blank" class="btn btn-outline">
+        View GitHub
+      </a>
     </div>
   </header>
+
   <section class="section">
     <div class="grid">
-      <div class="card"><h3>Privacy First</h3><p>Tools designed to keep your information on your device. Always encrypted, never shared.</p></div>
-      <div class="card"><h3>Peak Performance</h3><p>Optimized at the code level for zero-lag responsiveness on any hardware.</p></div>
-      <div class="card"><h3>Verifiable</h3><p>Open source code means the community can audit our security standards themselves.</p></div>
-      <div class="card open-source-card">
-        <div style="max-width: 600px; text-align: left;">
-          <h3 style="color: var(--primary);">Built in the Open</h3>
-          <p>We believe security should be verifiable. Linkbyte projects are open source, allowing for community contribution and safety.</p>
-        </div>
-        <a href="https://github.com/linkbyte-dev" class="btn btn-outline">View Source</a>
+      <div class="card">
+        <h3>Privacy First</h3>
+        <p>Your data stays on your device. Encrypted, local, and never sold.</p>
+      </div>
+      <div class="card">
+        <h3>Peak Performance</h3>
+        <p>Optimized at the code level for speed and reliability on any hardware.</p>
+      </div>
+      <div class="card">
+        <h3>Verifiable Security</h3>
+        <p>Open source by default — security you can audit and trust.</p>
       </div>
     </div>
   </section>
+
   <footer class="footer">
     <div class="footer-socials">
-      <a href="https://x.com/linkbyte_dev" target="_blank">X (Twitter)</a>
+      <a href="https://github.com/Linkbytedev" target="_blank">GitHub</a>
+      <a href="https://x.com/linkbyte_dev" target="_blank">X</a>
       <a href="https://www.instagram.com/linkbyte_dev/" target="_blank">Instagram</a>
-      <a href="https://github.com/linkbyte-dev" target="_blank">GitHub</a>
     </div>
-    <p>&copy; 2026 Linkbyte Studio &bull; Linkbytedevelopmentsolutions@proton.me</p>
+    <p>
+      &copy; 2026 Linkbyte Studio •
+      <a href="mailto:linkbytedevelopmentsolutions@gmail.com"
+         style="color:inherit;text-decoration:none;">
+        linkbytedevelopmentsolutions@gmail.com
+      </a>
+    </p>
   </footer>
+
 </body>
 </html>
