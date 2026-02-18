@@ -2,27 +2,5 @@
   "versionCode": 5,
   "versionName": "beta 1.1.0",
   "downloadUrl": "https://www.dropbox.com/scl/fi/m34xf3r5727p3begtredk/Shiftbeta1.1.0.apk?rlkey=2nnvvpb9gcicl8k6ffe7lmzhx&st=b8d8nhz1&dl=1",
-  "releaseNotes": "What's New in Shift Beta 1.1.0
-🔒 Advanced Security & Privacy
-
-Privacy & Security Hub: A new dedicated section to manage your app security.
-Screenshot Security: Request permission to disable screenshots in a chat. If approved, the chat is protected from screenshots and screen recording for both parties.
-Biometric Vault: Secure your Encrypted Vault with your fingerprint or face unlock for faster access.
-Two-Way Deletion: When you block a user, the conversation and messages are now permanently deleted for both you and the blocked user.
-📁 Vault Improvements
-
-"Move" to Vault: Adding a photo now automatically deletes it from your phone's gallery, ensuring it's truly private.
-Export from Vault: You can now export photos back to your gallery if needed.
-Biometric Auto-Unlock: The vault now prompts for biometrics automatically when opened.
-💬 Chat & Friends
-
-Friend Removal: Blocking a user now automatically removes them from your friends list.
-Disappearing Messages: Set accurate timers (5s, 10s, 1m, 5m) for messages to auto-delete.
-Graceful Handling: Improved stability if a chat is deleted while you're viewing it (no more crashes!).
-Scrollable Updates: The "What's New" popup is now scrollable so you can read all the details.
-✨ Enhancements
-
-Mute Notifications: Silence specific conversations.
-Clear Chat: Quickly wipe message history without removing the friend.
-Performance: Various bug fixes and UI improvements."
+  "releaseNotes": "What's New in Shift Beta 1.1.0\n\n🔒 Advanced Security & Privacy\n\nPrivacy & Security Hub: A new dedicated section to manage your app security.\nScreenshot Security: Request permission to disable screenshots in a chat. If approved, the chat is protected from screenshots and screen recording for both parties.\nBiometric Vault: Secure your Encrypted Vault with your fingerprint or face unlock for faster access.\nTwo-Way Deletion: When you block a user, the conversation and messages are now permanently deleted for both you and the blocked user.\n\n📁 Vault Improvements\n\n\"Move\" to Vault: Adding a photo now automatically deletes it from your phone's gallery, ensuring it's truly private.\nExport from Vault: You can now export photos back to your gallery if needed.\nBiometric Auto-Unlock: The vault now prompts for biometrics automatically when opened.\n\n💬 Chat & Friends\n\nFriend Removal: Blocking a user now automatically removes them from your friends list.\nDisappearing Messages: Set accurate timers (5s, 10s, 1m, 5m) for messages to auto-delete.\nGraceful Handling: Improved stability if a chat is deleted while you're viewing it (no more crashes!).\nScrollable Updates: The \"What's New\" popup is now scrollable so you can read all the details.\n\n✨ Enhancements\n\nMute Notifications: Silence specific conversations.\nClear Chat: Quickly wipe message history without removing the friend.\nPerformance: Various bug fixes and UI improvements."
 }
