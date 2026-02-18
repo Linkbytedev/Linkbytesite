@@ -2,6 +2,5 @@
   "versionCode": 5,
   "versionName": "beta 1.1.0",
   "downloadUrl": "https://www.dropbox.com/scl/fi/m34xf3r5727p3begtredk/Shiftbeta1.1.0.apk?rlkey=2nnvvpb9gcicl8k6ffe7lmzhx&st=b8d8nhz1&dl=1",
-  "releaseNotes": ""
+  "releaseNotes": "What's New in Shift Beta 1.1.0\n\nAdvanced Security & Privacy\n\nPrivacy & Security Hub: A new dedicated section to manage your app security.\nScreenshot Security: Request permission to disable screenshots in a chat.\nBiometric Vault: Secure your Encrypted Vault with biometrics.\nTwo-Way Deletion: Blocking a user deletes the chat for both users.\n\nVault Improvements\n\nMove to Vault: Adding a photo deletes it from your gallery.\nExport from Vault: Export photos back to gallery.\nBiometric Auto-Unlock: Vault prompts for biometrics automatically.\n\nChat & Friends\n\nFriend Removal: Blocking removes from friends list.\nDisappearing Messages: 5s, 10s, 1m, 5m timers.\nGraceful Handling: No crash if chat deleted while open.\nScrollable Updates: What's New popup is scrollable.\n\nEnhancements\n\nMute Notifications.\nClear Chat.\nPerformance improvements."
 }
-
