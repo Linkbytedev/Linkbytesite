@@ -1,6 +1,6 @@
 {
-  "versionCode": 6,
-  "versionName": "beta 1.1.1",
+  "versionCode": 7,
+  "versionName": "beta 1.1.2",
   "downloadUrl": "https://www.dropbox.com/scl/fi/qunzej5lshfq18ejccmgl/Shiftbeta1.1.1.apk?rlkey=0glx576ptptkwkm54twhiu3wa&st=62xl4voy&dl=1",
   "releaseNotes": "🚀 Shift Beta 1.1.1\n\n• Fixed Google Services errors\n• Greatly improved app performance & speed\n• Added support contact links\n• Smaller app size",
   "mandatory": false,
