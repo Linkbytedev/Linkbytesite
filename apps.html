@@ -1,269 +1,295 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apps | Linkbyte</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
+  <title>Applications | Linkbyte</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    :root { 
-      --bg: #08080c; 
-      --card-bg: #11111a; 
-      --border: rgba(255, 255, 255, 0.08); 
-      --primary: #0077ff; 
-      --text-main: #ffffff; 
-      --text-muted: #94a3b8; 
-      --coming: orange;
+    :root {
+      --bg: #06070c;
+      --card-bg: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --primary: #0077ff;
+      --coming: #ff9f1a;
+      --text-main: #ffffff;
+      --text-muted: #9ca3af;
+      --radius: 28px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body { 
-      font-family: 'Plus Jakarta Sans', sans-serif; 
-      background: var(--bg); 
-      color: var(--text-main); 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .nav { 
-      padding: 1.25rem 2rem; 
-      border-bottom: var(--border) 1px solid; 
-      position: sticky; 
-      top: 0; 
-      backdrop-filter: blur(10px); 
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at 20% 20%, #0d1220, #06070c 60%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
     }
 
-    .back-btn { 
-      text-decoration: none; 
-      color: var(--text-muted); 
-      font-size: 0.9rem; 
+    .nav {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
     }
 
-    .container { 
-      max-width: 1000px; 
-      margin: 4rem auto; 
-      padding: 0 2rem; 
+    .back-btn {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: 0.3s;
     }
 
-    .app-card { 
-      background: var(--card-bg); 
-      border: 1px solid var(--border); 
-      border-radius: 32px; 
-      padding: 3rem; 
-      display: grid; 
-      grid-template-columns: 1.2fr 0.8fr; 
-      gap: 3rem; 
+    .back-btn:hover {
+      color: var(--text-main);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+
+    .page-title {
+      font-size: 3.5rem;
+      font-weight: 800;
       margin-bottom: 3rem;
+      letter-spacing: -1px;
     }
 
-    .version-badge { 
-      display: inline-block; 
-      padding: 0.25rem 0.75rem; 
-      background: rgba(0, 119, 255, 0.1); 
-      color: var(--primary); 
-      border-radius: 100px; 
-      font-size: 0.8rem; 
-      font-weight: 700; 
-      margin-bottom: 1rem; 
+    .apps-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
     }
 
-    .coming-badge {
-      background: rgba(255,165,0,0.1);
+    .app-card {
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      backdrop-filter: blur(16px);
+      transition: 0.4s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-live {
+      background: rgba(0,119,255,0.15);
+      color: var(--primary);
+    }
+
+    .badge-coming {
+      background: rgba(255,159,26,0.15);
       color: var(--coming);
     }
 
-    .version-display {
-      font-size: 1rem;
+    .app-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .version {
+      font-size: 0.95rem;
       font-weight: 600;
-      color: var(--primary);
-      margin-top: 0.5rem;
+      margin-bottom: 1rem;
     }
 
-    .repo-stats {
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
+    .description {
       color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin: 2rem 0;
+      max-width: 520px;
     }
 
-    .btn-group { 
-      display: flex; 
-      gap: 1rem; 
-      margin: 2rem 0; 
-      flex-wrap: wrap; 
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
     }
 
-    .btn { 
-      padding: 1rem 1.8rem; 
-      border-radius: 14px; 
-      text-decoration: none; 
-      font-weight: 700; 
+    .btn {
+      padding: 0.9rem 1.6rem;
+      border-radius: 14px;
+      font-weight: 700;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      transition: 0.3s; 
+      transition: 0.3s;
+      border: 1px solid transparent;
     }
 
-    .download-btn { 
-      background: var(--text-main); 
-      color: var(--bg); 
+    .btn-primary {
+      background: white;
+      color: black;
     }
 
-    .github-btn { 
-      border: 1px solid var(--border); 
-      color: var(--text-main); 
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: white;
     }
 
-    .disabled-btn {
-      opacity: 0.5;
+    .btn-disabled {
+      opacity: 0.4;
       pointer-events: none;
     }
 
-    .btn:hover { 
-      transform: translateY(-3px); 
-      box-shadow: 0 10px 20px rgba(255,255,255,0.05); 
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
-    .release-notes { 
-      margin-top: 2rem; 
-      padding-top: 2rem; 
-      border-top: 1px solid var(--border); 
-    }
-
-    .release-notes-content { 
-      color: var(--text-muted); 
-      font-size: 0.9rem; 
-      white-space: pre-line; 
-      line-height: 1.7;
-      max-height: 260px;
-      overflow-y: auto;
-    }
-
-    .visual-mockup { 
-      background: rgba(255,255,255,0.02); 
-      border: 1px solid var(--border); 
-      border-radius: 24px; 
-      min-height: 400px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
+    .release-box {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
       color: var(--text-muted);
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .preview-box {
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-weight: 600;
       font-size: 1.1rem;
+      color: var(--text-muted);
+      min-height: 360px;
     }
 
-    @media (max-width: 850px) { 
-      .app-card { grid-template-columns: 1fr; } 
+    @media (max-width: 900px) {
+      .app-card {
+        grid-template-columns: 1fr;
+      }
+
+      .page-title {
+        font-size: 2.6rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <nav class="nav">
-    <a href="index.html" class="back-btn">← Home</a>
+    <a href="index.html" class="back-btn">← Back to Home</a>
   </nav>
 
   <div class="container">
-    <h1 style="font-size: 3rem; margin-bottom: 2rem;">
-      Applications
-    </h1>
+    <h1 class="page-title">Applications</h1>
 
-    <!-- SHIFT APP -->
-    <div class="app-card">
-      <div>
-        <div id="app-version-badge" class="version-badge">Loading...</div>
+    <div class="apps-grid">
 
-        <h2 style="font-size: 2.5rem; margin-bottom: 0.3rem;">Shift</h2>
+      <!-- SHIFT -->
+      <div class="app-card">
+        <div>
+          <div id="app-version-badge" class="badge badge-live">Loading...</div>
 
-        <div id="version-display" class="version-display">
-          Version loading...
-        </div>
+          <div class="app-title">Shift</div>
 
-        <div id="repo-stats" class="repo-stats">
-          Loading repository data...
-        </div>
+          <div id="version-display" class="version">Loading version...</div>
 
-        <p style="color: var(--text-muted); font-size: 1.1rem; margin: 2rem 0;">
-          A modern Android messaging app designed for speed, security, and privacy.
-        </p>
+          <div id="repo-stats" style="color: var(--text-muted); font-size: 0.85rem;"></div>
 
-        <div class="btn-group">
-          <a href="#" id="download-link" class="btn download-btn">
-            Download APK
-          </a>
+          <p class="description">
+            A modern Android messaging app built for speed, privacy,
+            and clean communication.
+          </p>
 
-          <a href="https://github.com/Linkbytedev/Shift"
-             class="btn github-btn"
-             target="_blank"
-             rel="noopener">
-            <i data-lucide="github"></i>
-            View Source
-          </a>
-        </div>
+          <div class="btn-group">
+            <a href="#" id="download-link" class="btn btn-primary">
+              Download APK
+            </a>
 
-        <div class="release-notes">
-          <h3 style="color: var(--primary); margin-bottom: 1rem;">
-            WHAT'S NEW
-          </h3>
-          <div id="release-notes-text" class="release-notes-content">
+            <a href="https://github.com/Linkbytedev/Shift"
+               target="_blank"
+               class="btn btn-secondary">
+              <i data-lucide="github"></i>
+              View Source
+            </a>
+          </div>
+
+          <div id="release-notes-text" class="release-box">
             Fetching latest updates...
           </div>
         </div>
+
+        <div class="preview-box">
+          Shift UI Preview
+        </div>
       </div>
 
-      <div class="visual-mockup">
-        Shift UI Preview
-      </div>
-    </div>
+      <!-- HABITQUEST -->
+      <div class="app-card">
+        <div>
+          <div class="badge badge-coming">Coming Soon</div>
 
-    <!-- HABITQUEST APP -->
-    <div class="app-card">
-      <div>
-        <div class="version-badge coming-badge">Coming Soon</div>
+          <div class="app-title">HabitQuest</div>
 
-        <h2 style="font-size: 2.5rem; margin-bottom: 0.3rem;">
-          HabitQuest
-        </h2>
+          <div class="version" style="color: var(--coming);">
+            Launching Soon
+          </div>
 
-        <div class="version-display" style="color: var(--coming);">
-          Launching Soon
-        </div>
+          <p class="description">
+            Turn your habits into an epic quest. Build streaks,
+            earn rewards, and level up your real life.
+          </p>
 
-        <div class="repo-stats">
-          🚀 Gamified habit-building experience
-        </div>
+          <div class="btn-group">
+            <a class="btn btn-primary btn-disabled">
+              Coming Soon
+            </a>
 
-        <p style="color: var(--text-muted); font-size: 1.1rem; margin: 2rem 0;">
-          Turn your daily habits into an epic quest. Build streaks,
-          earn rewards, and level up your life.
-        </p>
+            <a class="btn btn-secondary btn-disabled">
+              Source (Soon)
+            </a>
+          </div>
 
-        <div class="btn-group">
-          <a href="#" class="btn download-btn disabled-btn">
-            Coming Soon
-          </a>
-
-          <a href="#" class="btn github-btn disabled-btn">
-            Source (Soon)
-          </a>
-        </div>
-
-        <div class="release-notes">
-          <h3 style="color: var(--coming); margin-bottom: 1rem;">
-            STATUS
-          </h3>
-          <div class="release-notes-content">
+          <div class="release-box">
             HabitQuest is currently in development.
-            Stay tuned for updates!
+            Stay tuned for updates.
           </div>
         </div>
+
+        <div class="preview-box">
+          HabitQuest Preview
+        </div>
       </div>
 
-      <div class="visual-mockup">
-        HabitQuest Preview
-      </div>
     </div>
-
   </div>
 
   <script>
@@ -280,7 +306,8 @@
         document.getElementById('release-notes-text').textContent = data.releaseNotes;
 
       } catch (e) {
-        document.getElementById('release-notes-text').textContent = "Unable to load updates.";
+        document.getElementById('release-notes-text').textContent =
+          "Unable to load updates.";
       }
     }
 
@@ -291,7 +318,7 @@
 
         document.getElementById("repo-stats").innerHTML =
           `⭐ ${repo.stargazers_count} stars • 🍴 ${repo.forks_count} forks`;
-      } catch (error) {
+      } catch {
         document.getElementById("repo-stats").textContent =
           "Unable to load repository data.";
       }
