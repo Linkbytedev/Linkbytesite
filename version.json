@@ -1,9 +1,9 @@
 {
-  "versionCode": 6,
-  "versionName": "beta 1.1.1",
-  "downloadUrl": "https://www.dropbox.com/scl/fi/qunzej5lshfq18ejccmgl/Shiftbeta1.1.1.apk?rlkey=0glx576ptptkwkm54twhiu3wa&st=62xl4voy&dl=1",
-  "releaseNotes": "🚀 Shift Beta 1.1.1\n\n• Fixed Google Services errors\n• Greatly improved app performance & speed\n• Added support contact links\n• Smaller app size",
-  "mandatory": false,
-  "buildDate": "2026-02-18",
-  "channel": "beta"
+  "versionCode": 7,
+  "versionName": "1.0.0",
+  "downloadUrl": "https://www.dropbox.com/scl/fi/ghpoatos2kkye5ip26hxs/Shift1.0.0.apk?rlkey=fzww42xuml2l6nbjumojvt6j1&st=go1ij1g4&dl=1",
+  "releaseNotes": "🚀 Shift 1.0.0 (Production Release)\n\n• Security Hardened: Full encryption and API restrictions applied\n• Enforced HTTPS: All connections now strictly secure\n• Optimized for Global Release: Cleaned build and reduced footprint\n• Performance: Stabilized background services and UI animations",
+  "mandatory": true,
+  "buildDate": "2026-03-03",
+  "channel": "stable"
 }
