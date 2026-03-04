@@ -1,7 +1,7 @@
 {
   "versionCode": 7,
   "versionName": "1.0.0",
-  "downloadUrl": "https://www.dropbox.com/scl/fi/ghpoatos2kkye5ip26hxs/Shift1.0.0.apk?rlkey=fzww42xuml2l6nbjumojvt6j1&st=go1ij1g4&dl=1",
+  "downloadUrl": "https://www.dropbox.com/scl/fi/y1kbyqi5rqno4km13ywlt/Shift1.0.0.apk?rlkey=9pdt0f5w5ts4wih42jxedps8u&st=kqc9oq1p&dl=1",
   "releaseNotes": "🚀 Shift 1.0.0 (Production Release)\n\n• Security Hardened: Full encryption and API restrictions applied\n• Enforced HTTPS: All connections now strictly secure\n• Optimized for Global Release: Cleaned build and reduced footprint\n• Performance: Stabilized background services and UI animations",
   "mandatory": true,
   "buildDate": "2026-03-03",
