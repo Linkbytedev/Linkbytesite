@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Linkbyte | Next-Gen App Development</title>
+  <title>About Us | Linkbyte</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     :root {
@@ -29,6 +30,7 @@
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     h1, h2, h3, .nav-logo {
@@ -63,22 +65,29 @@
       max-width: 1000px;
       z-index: 100;
       padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       background: rgba(15, 15, 20, 0.4);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border: 1px solid var(--border);
       border-radius: 100px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .nav-logo {
-      font-weight: 800;
-      font-size: 1.5rem;
+    .back-btn {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .back-btn:hover {
       color: #fff;
-      letter-spacing: -0.02em;
     }
 
     .nav-links {
@@ -98,38 +107,19 @@
       color: #fff;
     }
 
-    /* Hero Section */
-    .hero {
-      padding: 15rem 2rem 8rem;
-      text-align: center;
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    /* Container and Headers */
+    .container {
+      max-width: 1200px;
+      margin: 10rem auto 5rem;
+      padding: 0 2rem;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.6rem 1.2rem;
-      border-radius: 100px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      letter-spacing: 0.05em;
-      backdrop-filter: blur(10px);
-    }
-
-    .hero h1 {
-      font-size: clamp(3.5rem, 8vw, 5.5rem);
+    .page-title {
+      font-size: clamp(3rem, 6vw, 4rem);
       font-weight: 900;
-      line-height: 1.05;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.04em;
+      margin-bottom: 2rem;
+      letter-spacing: -0.03em;
+      text-align: center;
     }
 
     .gradient {
@@ -146,79 +136,21 @@
       100% { background-position: 0% 50%; }
     }
 
-    .hero p {
-      color: var(--text-muted);
-      font-size: 1.25rem;
-      max-width: 650px;
-      margin: 0 auto 3rem;
-      line-height: 1.8;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 1.2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 1rem 2.2rem;
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 1.05rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .btn-main {
-      background: #fff;
-      color: #030407;
-      box-shadow: 0 0 20px rgba(255,255,255,0.15);
-    }
-
-    .btn-main:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(255,255,255,0.25);
-    }
-
-    .btn-outline {
-      border: 1px solid var(--border);
-      color: #fff;
-      background: rgba(255,255,255,0.02);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.15);
-      transform: translateY(-2px);
-    }
-
-    /* Sections */
-    .section {
-      padding: 8rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
     .section-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-top: 6rem;
+      margin-bottom: 2rem;
     }
 
     .section-header h2 {
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 800;
       letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
     }
 
     .section-content {
       max-width: 800px;
-      margin: 0 auto 6rem;
+      margin: 0 auto;
       text-align: center;
       color: var(--text-muted);
       font-size: 1.15rem;
@@ -234,6 +166,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5rem;
+      margin-top: 3rem;
     }
 
     .card {
@@ -285,6 +218,7 @@
       text-align: center;
       border-top: 1px solid var(--border);
       position: relative;
+      margin-top: 6rem;
     }
 
     .footer-socials {
@@ -316,10 +250,7 @@
         padding: 1rem 1.5rem;
       }
       .nav-links {
-        gap: 1rem;
-      }
-      .hero {
-        padding: 10rem 1rem 5rem;
+        display: none; /* Hide extra links on mobile for cleaner top bar */
       }
     }
   </style>
@@ -329,31 +260,62 @@
   <div class="bg-mesh"></div>
 
   <nav class="nav">
-    <div class="nav-logo">Linkbyte</div>
+    <a href="index.html" class="back-btn">
+      <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
+      Back to Home
+    </a>
     <div class="nav-links">
-      <a href="about.html">About</a>
       <a href="apps.html">Apps</a>
       <a href="contact.html">Contact</a>
       <a href="https://github.com/Linkbytedev" target="_blank">GitHub</a>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="badge">OPEN SOURCE STUDIO</div>
-    <h1>Privacy First.<br><span class="gradient">People Always.</span></h1>
-    <p>
-      Building technology communities can trust. We craft secure, privacy-focused apps for a safer digital future.
-    </p>
+  <div class="container">
+    <h1 class="page-title">About <span class="gradient">Us</span></h1>
 
-    <div class="btn-group">
-      <a href="apps.html" class="btn btn-main">Browse Apps</a>
-      <a href="https://github.com/Linkbytedev" target="_blank" class="btn btn-outline">
-        View GitHub
-      </a>
+    <div class="section-header" style="margin-top: 2rem;">
+      <h2>Our Mission</h2>
     </div>
-  </header>
+    <div class="section-content">
+      <p>Our mission is to create secure, privacy-focused technology that empowers communities and supports organizations. We want to help people stay in control of their digital lives. We believe technology should be ethical, accessible, and built to strengthen trust, not exploit personal data.</p>
+      <p>Through innovative app development and community-driven solutions, we strive to make digital experiences safer, more transparent, and more inclusive for everyone. We are dedicated to protecting user privacy, promoting digital freedom, and developing tools that prioritize people.</p>
+      <p>By combining innovation with responsibility, we aim to build technology that communities can rely on. Our technology is designed with integrity, security, and long-term trust.</p>
+    </div>
 
+    <div class="section-header">
+      <h2>Our Vision</h2>
+    </div>
+    <div class="section-content">
+      <p>We envision a future where technology is open, secure, and respects every individual’s privacy. A future where communities, organizations, and users can connect and grow without sacrificing trust or personal freedom.</p>
+    </div>
 
+    <div class="section-header">
+      <h2>Our Core Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="card">
+        <h3>Privacy First</h3>
+        <p>We believe every user deserves control over their personal data and digital identity.</p>
+      </div>
+      <div class="card">
+        <h3>Community Driven</h3>
+        <p>We build technology that benefits people, supports organizations, and strengthens communities.</p>
+      </div>
+      <div class="card">
+        <h3>Transparency & Trust</h3>
+        <p>We are committed to honesty, openness, and ethical development practices.</p>
+      </div>
+      <div class="card">
+        <h3>Accessibility</h3>
+        <p>Technology should be simple, inclusive, and available to everyone.</p>
+      </div>
+      <div class="card">
+        <h3>Innovation with Purpose</h3>
+        <p>We create modern solutions that solve real problems while protecting the people who use them.</p>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="footer-socials">
@@ -371,6 +333,8 @@
   </footer>
 
   <script>
+    lucide.createIcons();
+
     // Add mouse tracking for the glow effect on cards
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('mousemove', e => {
