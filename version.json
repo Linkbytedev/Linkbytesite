@@ -1,8 +1,8 @@
 {
-  "versionCode": 9,
-  "versionName": "1.0.2",
-  "downloadUrl": "https://www.dropbox.com/scl/fi/32nd7tr81bgd9871wgrhn/Shift1.0.2.apk?rlkey=hjffnqc12a6io9i6na93jipbv&st=smh9jh4l&dl=1",
-  "releaseNotes": "🚀 Shift 1.0.2 Release\n\n• Bug fixes and performance stability improvements\n• Security maintenance updates",
+  "versionCode": 10,
+  "versionName": "1.0.3",
+  "downloadUrl": "https://www.dropbox.com/scl/fi/yev38zfuudwsh1p4ijqwz/Shift-1.03.apk?rlkey=ddr1cbcu8gcfi05nh05pcpp7v&st=9qphj8ez&dl=1",
+  "releaseNotes": "🚀 Shift 1.0.3 Release\n\n• Custom chat themes — per-chat accent colors, bubble colors, and font size\n• Group chat management — add members and view group details\n• Two-factor authentication (2FA) support with TOTP\n• 2FA prompt on auto-login with configurable toggle\n• Audio call bandwidth optimization (~2 MB for 30 min)\n• 30-minute call duration hard cap\n• Backup TCP TURN server for better connectivity\n• Bug fixes and stability improvements",
   "mandatory": true,
   "buildDate": "2026-05-25",
   "channel": "stable"
