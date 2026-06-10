@@ -3,347 +3,239 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | Linkbyte</title>
+  <meta name="description" content="About Linkbyte — our mission, vision, and core values." />
+  <title>About | Linkbyte</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 
   <style>
-    :root {
-      --bg: #030407;
-      --surface: rgba(255, 255, 255, 0.02);
-      --border: rgba(255, 255, 255, 0.08);
-      --primary: #4f46e5;
-      --secondary: #0ea5e9;
-      --accent: #8b5cf6;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+    .page-header {
+      padding: 3.5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3, .nav-logo {
-      font-family: 'Outfit', sans-serif;
-    }
-
-    /* Animated Background */
-    .bg-mesh {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: -1;
-      background: 
-        radial-gradient(circle at 15% 50%, rgba(79, 70, 229, 0.12), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(14, 165, 233, 0.12), transparent 25%),
-        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.12), transparent 25%);
-      filter: blur(40px);
-      animation: breathe 10s ease-in-out infinite alternate;
-    }
-
-    @keyframes breathe {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.05); }
-    }
-
-    /* Navigation */
-    .nav {
-      position: fixed;
-      top: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 1000px;
-      z-index: 100;
-      padding: 1rem 2rem;
-      background: rgba(15, 15, 20, 0.4);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .back-btn {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .back-btn:hover {
-      color: #fff;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    /* Container and Headers */
-    .container {
-      max-width: 1200px;
-      margin: 10rem auto 5rem;
-      padding: 0 2rem;
-    }
-
-    .page-title {
-      font-size: clamp(3rem, 6vw, 4rem);
+    .page-header h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
       font-weight: 900;
-      margin-bottom: 2rem;
-      letter-spacing: -0.03em;
-      text-align: center;
+      color: var(--text);
     }
 
-    .gradient {
-      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 200% auto;
-      animation: gradientFlow 5s ease infinite;
-    }
-
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .section-header {
-      text-align: center;
-      margin-top: 6rem;
-      margin-bottom: 2rem;
-    }
-
-    .section-header h2 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .section-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      line-height: 1.8;
-    }
-
-    .section-content p {
-      margin-bottom: 1.5rem;
-    }
-
-    /* Grid & Cards */
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 3rem 2.5rem;
-      backdrop-filter: blur(20px);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%);
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    }
-
-    .card h3 {
-      font-size: 1.4rem;
-      color: #fff;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .card p {
-      color: var(--text-muted);
+    .page-header p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+      margin-top: 0.75rem;
+      max-width: 520px;
       line-height: 1.7;
     }
 
-    /* Footer */
-    .footer {
-      padding: 6rem 2rem 4rem;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      position: relative;
-      margin-top: 6rem;
+    /* Mission / Vision blocks */
+    .prose-section {
+      margin-bottom: 4rem;
     }
 
-    .footer-socials {
+    .prose-section h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    .prose-section p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      max-width: 720px;
+    }
+
+    .prose-section p:last-child { margin-bottom: 0; }
+
+    /* Values grid */
+    .values-section {
+      margin-bottom: 3rem;
+    }
+
+    .values-section h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+    }
+
+    .value-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .value-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+    }
+
+    .value-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--accent-dim);
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.25rem;
     }
 
-    .footer-socials a {
+    .value-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--accent);
+    }
+
+    .value-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .value-card p {
+      font-size: 0.9rem;
       color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.3s;
-      font-weight: 500;
+      line-height: 1.65;
     }
 
-    .footer-socials a:hover {
-      color: #fff;
-    }
-
-    .footer p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 768px) {
-      .nav {
-        width: 95%;
-        padding: 1rem 1.5rem;
-      }
-      .nav-links {
-        display: none; /* Hide extra links on mobile for cleaner top bar */
-      }
+    @media (max-width: 640px) {
+      .page-header { padding: 2.5rem 0 2rem; margin-bottom: 2.5rem; }
+      .prose-section { margin-bottom: 3rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-mesh"></div>
+  <div class="bg-glow"></div>
 
-  <nav class="nav">
-    <a href="index.html" class="back-btn">
-      <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
-      Back to Home
-    </a>
-    <div class="nav-links">
-      <a href="apps.html">Apps</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://github.com/Linkbytedev" target="_blank">GitHub</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Link<span>byte</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://github.com/Linkbytedev" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <div class="container">
-    <h1 class="page-title">About <span class="gradient">Us</span></h1>
+  <nav class="nav-drawer" aria-label="Mobile navigation">
+    <a href="about.html">About</a>
+    <a href="apps.html">Apps</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://github.com/Linkbytedev" target="_blank" rel="noopener">GitHub</a>
+  </nav>
 
-    <div class="section-header" style="margin-top: 2rem;">
-      <h2>Our Mission</h2>
-    </div>
-    <div class="section-content">
-      <p>Our mission is to create secure, privacy-focused technology that empowers communities and supports organizations. We want to help people stay in control of their digital lives. We believe technology should be ethical, accessible, and built to strengthen trust, not exploit personal data.</p>
-      <p>Through innovative app development and community-driven solutions, we strive to make digital experiences safer, more transparent, and more inclusive for everyone. We are dedicated to protecting user privacy, promoting digital freedom, and developing tools that prioritize people.</p>
-      <p>By combining innovation with responsibility, we aim to build technology that communities can rely on. Our technology is designed with integrity, security, and long-term trust.</p>
-    </div>
+  <main class="page">
 
-    <div class="section-header">
-      <h2>Our Vision</h2>
-    </div>
-    <div class="section-content">
-      <p>We envision a future where technology is open, secure, and respects every individual’s privacy. A future where communities, organizations, and users can connect and grow without sacrificing trust or personal freedom.</p>
-    </div>
+    <header class="page-header">
+      <p class="section-label">Who we are</p>
+      <h1>About Linkbyte</h1>
+      <p>An open-source studio building technology communities can trust.</p>
+    </header>
 
-    <div class="section-header">
-      <h2>Our Core Values</h2>
-    </div>
-    <div class="values-grid">
-      <div class="card">
-        <h3>Privacy First</h3>
-        <p>We believe every user deserves control over their personal data and digital identity.</p>
+    <section class="prose-section" aria-labelledby="mission-heading">
+      <h2 id="mission-heading">Our Mission</h2>
+      <p>Our mission is to create secure, privacy-focused technology that empowers communities and supports organizations. We want to help people stay in control of their digital lives — because we believe technology should be ethical, accessible, and built to strengthen trust, not exploit personal data.</p>
+      <p>Through open-source development and community-driven solutions, we strive to make digital experiences safer, more transparent, and more inclusive for everyone. Our tools are designed with integrity, security, and long-term trust in mind.</p>
+    </section>
+
+    <section class="prose-section" aria-labelledby="vision-heading">
+      <h2 id="vision-heading">Our Vision</h2>
+      <p>We envision a future where technology is open, secure, and respects every individual&apos;s privacy. A future where communities, organizations, and users can connect and grow without sacrificing trust or personal freedom.</p>
+    </section>
+
+    <section class="values-section" aria-labelledby="values-heading">
+      <h2 id="values-heading">Core Values</h2>
+      <div class="values-grid">
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Privacy First</h3>
+          <p>Every user deserves control over their personal data and digital identity.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Community Driven</h3>
+          <p>We build technology that benefits people, supports organizations, and strengthens communities.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Transparency &amp; Trust</h3>
+          <p>We are committed to honesty, openness, and ethical development practices at every step.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="6" height="18" rx="1"/><rect x="9" y="8" width="6" height="13" rx="1"/><rect x="16" y="13" width="6" height="8" rx="1"/></svg>
+          </div>
+          <h3>Accessibility</h3>
+          <p>Technology should be simple, inclusive, and available to everyone regardless of technical skill.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Innovation with Purpose</h3>
+          <p>We create modern solutions that solve real problems while protecting the people who use them.</p>
+        </div>
+
       </div>
-      <div class="card">
-        <h3>Community Driven</h3>
-        <p>We build technology that benefits people, supports organizations, and strengthens communities.</p>
-      </div>
-      <div class="card">
-        <h3>Transparency & Trust</h3>
-        <p>We are committed to honesty, openness, and ethical development practices.</p>
-      </div>
-      <div class="card">
-        <h3>Accessibility</h3>
-        <p>Technology should be simple, inclusive, and available to everyone.</p>
-      </div>
-      <div class="card">
-        <h3>Innovation with Purpose</h3>
-        <p>We create modern solutions that solve real problems while protecting the people who use them.</p>
-      </div>
-    </div>
-  </div>
+    </section>
+
+  </main>
 
   <footer class="footer">
-    <div class="footer-socials">
-      <a href="https://github.com/Linkbytedev" target="_blank">GitHub</a>
-      <a href="https://x.com/linkbyte_dev" target="_blank">X</a>
-      <a href="https://www.instagram.com/linkbyte_dev/" target="_blank">Instagram</a>
+    <div class="footer-inner">
+      <p class="footer-copy">
+        &copy; 2026 Linkbyte Studio &bull;
+        <a href="mailto:linkbytedevelopmentsolutions@gmail.com">linkbytedevelopmentsolutions@gmail.com</a>
+      </p>
+      <ul class="footer-links" role="list">
+        <li><a href="https://github.com/Linkbytedev" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://x.com/linkbyte_dev" target="_blank" rel="noopener">X</a></li>
+        <li><a href="https://www.instagram.com/linkbyte_dev/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
     </div>
-    <p>
-      &copy; 2026 Linkbyte Studio •
-      <a href="mailto:linkbytedevelopmentsolutions@gmail.com"
-         style="color:inherit;text-decoration:none;">
-        linkbytedevelopmentsolutions@gmail.com
-      </a>
-    </p>
   </footer>
 
   <script>
-    lucide.createIcons();
-
-    // Add mouse tracking for the glow effect on cards
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-      });
+    const toggle = document.querySelector('.nav-toggle');
+    const drawer = document.querySelector('.nav-drawer');
+    toggle.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
     });
   </script>
 </body>

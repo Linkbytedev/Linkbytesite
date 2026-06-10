@@ -3,383 +3,352 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Linkbyte | Next-Gen App Development</title>
+  <meta name="description" content="Linkbyte — Open-source, privacy-first app studio building technology communities can trust." />
+  <title>Linkbyte | Privacy-First App Studio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 
   <style>
-    :root {
-      --bg: #030407;
-      --surface: rgba(255, 255, 255, 0.02);
-      --border: rgba(255, 255, 255, 0.08);
-      --primary: #4f46e5;
-      --secondary: #0ea5e9;
-      --accent: #8b5cf6;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, .nav-logo {
-      font-family: 'Outfit', sans-serif;
-    }
-
-    /* Animated Background */
-    .bg-mesh {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: -1;
-      background: 
-        radial-gradient(circle at 15% 50%, rgba(79, 70, 229, 0.12), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(14, 165, 233, 0.12), transparent 25%),
-        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.12), transparent 25%);
-      filter: blur(40px);
-      animation: breathe 10s ease-in-out infinite alternate;
-    }
-
-    @keyframes breathe {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.05); }
-    }
-
-    /* Navigation */
-    .nav {
-      position: fixed;
-      top: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 1000px;
-      z-index: 100;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(15, 15, 20, 0.4);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-logo {
-      font-weight: 800;
-      font-size: 1.5rem;
-      color: #fff;
-      letter-spacing: -0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    /* Hero Section */
+    /* ---- Hero ---- */
     .hero {
-      padding: 15rem 2rem 8rem;
-      text-align: center;
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 5rem 0 6rem;
+      max-width: 760px;
     }
 
-    .badge {
+    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.6rem 1.2rem;
-      border-radius: 100px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      letter-spacing: 0.05em;
-      backdrop-filter: blur(10px);
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
     }
 
     .hero h1 {
-      font-size: clamp(3.5rem, 8vw, 5.5rem);
+      font-size: clamp(2.8rem, 7vw, 5rem);
       font-weight: 900;
-      line-height: 1.05;
+      color: var(--text);
       margin-bottom: 1.5rem;
-      letter-spacing: -0.04em;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
     }
 
-    .gradient {
-      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 200% auto;
-      animation: gradientFlow 5s ease infinite;
-    }
-
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
     }
 
     .hero p {
-      color: var(--text-muted);
-      font-size: 1.25rem;
-      max-width: 650px;
-      margin: 0 auto 3rem;
-      line-height: 1.8;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text-soft);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
     }
 
-    .btn-group {
+    .hero-actions {
       display: flex;
-      gap: 1.2rem;
-      justify-content: center;
+      gap: 0.875rem;
       flex-wrap: wrap;
     }
 
-    .btn {
-      padding: 1rem 2.2rem;
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 1.05rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
+    /* ---- Value strip ---- */
+    .values {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border);
     }
 
-    .btn-main {
-      background: #fff;
-      color: #030407;
-      box-shadow: 0 0 20px rgba(255,255,255,0.15);
-    }
-
-    .btn-main:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(255,255,255,0.25);
-    }
-
-    .btn-outline {
-      border: 1px solid var(--border);
-      color: #fff;
-      background: rgba(255,255,255,0.02);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.15);
-      transform: translateY(-2px);
-    }
-
-    /* Sections */
-    .section {
-      padding: 8rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
+    .values-header {
       margin-bottom: 3rem;
     }
 
-    .section-header h2 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-    }
-
-    .section-content {
-      max-width: 800px;
-      margin: 0 auto 6rem;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      line-height: 1.8;
-    }
-
-    .section-content p {
-      margin-bottom: 1.5rem;
-    }
-
-    /* Grid & Cards */
     .values-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
     }
 
-    .card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    .value-card {
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 3rem 2.5rem;
-      backdrop-filter: blur(20px);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: border-color 0.25s, transform 0.25s;
     }
 
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%);
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
+    .value-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
     }
 
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    }
-
-    .card h3 {
-      font-size: 1.4rem;
-      color: #fff;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    /* Footer */
-    .footer {
-      padding: 6rem 2rem 4rem;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      position: relative;
-    }
-
-    .footer-socials {
+    .value-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--accent-dim);
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .value-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--accent);
+    }
+
+    .value-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .value-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ---- Apps teaser ---- */
+    .apps-teaser {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .apps-teaser-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
       margin-bottom: 2rem;
+      flex-wrap: wrap;
     }
 
-    .footer-socials a {
-      color: var(--text-muted);
+    .apps-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .app-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: border-color 0.25s, transform 0.25s;
       text-decoration: none;
-      transition: color 0.3s;
-      font-weight: 500;
     }
 
-    .footer-socials a:hover {
-      color: #fff;
+    .app-pill:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
     }
 
-    .footer p {
+    .app-pill-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .app-pill-desc {
+      font-size: 0.85rem;
       color: var(--text-muted);
-      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
-    @media (max-width: 768px) {
-      .nav {
-        width: 95%;
-        padding: 1rem 1.5rem;
-      }
-      .nav-links {
-        gap: 1rem;
-      }
-      .hero {
-        padding: 10rem 1rem 5rem;
-      }
+    .app-pill-arrow {
+      flex-shrink: 0;
+      color: var(--text-muted);
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .app-pill:hover .app-pill-arrow {
+      transform: translateX(3px);
+      color: var(--accent);
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 3rem 0 4rem; }
+      .values, .apps-teaser { padding: 3.5rem 0; }
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-mesh"></div>
+  <div class="bg-glow"></div>
 
-  <nav class="nav">
-    <div class="nav-logo">Linkbyte</div>
-    <div class="nav-links">
-      <a href="about.html">About</a>
-      <a href="apps.html">Apps</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://github.com/Linkbytedev" target="_blank">GitHub</a>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Link<span>byte</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://github.com/Linkbytedev" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="badge">OPEN SOURCE STUDIO</div>
-    <h1>Privacy First.<br><span class="gradient">People Always.</span></h1>
-    <p>
-      Building technology communities can trust. We craft secure, privacy-focused apps for a safer digital future.
-    </p>
+  <!-- Mobile drawer -->
+  <nav class="nav-drawer" aria-label="Mobile navigation">
+    <a href="about.html">About</a>
+    <a href="apps.html">Apps</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://github.com/Linkbytedev" target="_blank" rel="noopener">GitHub</a>
+  </nav>
 
-    <div class="btn-group">
-      <a href="apps.html" class="btn btn-main">Browse Apps</a>
-      <a href="https://github.com/Linkbytedev" target="_blank" class="btn btn-outline">
-        View GitHub
-      </a>
-    </div>
-  </header>
+  <main class="page">
 
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-eyebrow">
+        <span class="badge badge-label">Open Source Studio</span>
+      </div>
+      <h1>Privacy First.<br><em>People Always.</em></h1>
+      <p>Building secure, open-source apps for a safer digital future. Technology that communities can actually trust.</p>
+      <div class="hero-actions">
+        <a href="apps.html" class="btn btn-primary">Browse Apps</a>
+        <a href="https://github.com/Linkbytedev" target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          View GitHub
+        </a>
+      </div>
+    </header>
 
+    <!-- Core values -->
+    <section class="values" aria-labelledby="values-heading">
+      <div class="values-header">
+        <p class="section-label">What we stand for</p>
+        <h2 class="section-title" id="values-heading">Built on principles,<br>not profit.</h2>
+      </div>
+      <div class="values-grid">
 
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Privacy First</h3>
+          <p>Every user deserves full control over their personal data and digital identity — no exceptions.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3>Open Source</h3>
+          <p>Our code is public. Auditable, forkable, and built in the open so trust is earned, not assumed.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Community Driven</h3>
+          <p>We build for people — listening to real needs rather than chasing metrics or venture capital.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3>Purpose-Driven</h3>
+          <p>Innovation without ethics is noise. We build things that solve real problems responsibly.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Apps teaser -->
+    <section class="apps-teaser" aria-labelledby="apps-heading">
+      <div class="apps-teaser-header">
+        <div>
+          <p class="section-label">Our apps</p>
+          <h2 class="section-title" id="apps-heading">What we&apos;re building.</h2>
+        </div>
+        <a href="apps.html" class="btn btn-ghost btn-sm">See all apps</a>
+      </div>
+
+      <div class="apps-strip">
+        <a href="apps.html" class="app-pill">
+          <div>
+            <div class="app-pill-name">Shift</div>
+            <div class="app-pill-desc">Modern Android messaging — fast, private, clean.</div>
+          </div>
+          <div class="app-pill-arrow" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="apps.html" class="app-pill">
+          <div>
+            <div class="app-pill-name">HabitQuest</div>
+            <div class="app-pill-desc">Turn habits into quests. Coming soon.</div>
+          </div>
+          <div class="app-pill-arrow" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="apps.html" class="app-pill">
+          <div>
+            <div class="app-pill-name">PureSky</div>
+            <div class="app-pill-desc">Clean, private weather. No ads. Coming soon.</div>
+          </div>
+          <div class="app-pill-arrow" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-socials">
-      <a href="https://github.com/Linkbytedev" target="_blank">GitHub</a>
-      <a href="https://x.com/linkbyte_dev" target="_blank">X</a>
-      <a href="https://www.instagram.com/linkbyte_dev/" target="_blank">Instagram</a>
+    <div class="footer-inner">
+      <p class="footer-copy">
+        &copy; 2026 Linkbyte Studio &bull;
+        <a href="mailto:linkbytedevelopmentsolutions@gmail.com">linkbytedevelopmentsolutions@gmail.com</a>
+      </p>
+      <ul class="footer-links" role="list">
+        <li><a href="https://github.com/Linkbytedev" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://x.com/linkbyte_dev" target="_blank" rel="noopener">X</a></li>
+        <li><a href="https://www.instagram.com/linkbyte_dev/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
     </div>
-    <p>
-      &copy; 2026 Linkbyte Studio •
-      <a href="mailto:linkbytedevelopmentsolutions@gmail.com"
-         style="color:inherit;text-decoration:none;">
-        linkbytedevelopmentsolutions@gmail.com
-      </a>
-    </p>
   </footer>
 
   <script>
-    // Add mouse tracking for the glow effect on cards
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-      });
+    const toggle = document.querySelector('.nav-toggle');
+    const drawer = document.querySelector('.nav-drawer');
+    toggle.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
     });
   </script>
 </body>
