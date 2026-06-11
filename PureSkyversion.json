@@ -1,1 +1,9 @@
-
+{
+  "versionCode": 1,
+  "versionName": "1.0.0",
+  "downloadUrl": "YOUR_APK_DOWNLOAD_URL_HERE",
+  "releaseNotes": "🚀 PureSky 1.0.0\n\n• Initial first release of PureSky!",
+  "mandatory": true,
+  "buildDate": "2026-06-11",
+  "channel": "stable"
+}
